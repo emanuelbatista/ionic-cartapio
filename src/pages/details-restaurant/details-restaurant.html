@@ -1,0 +1,35 @@
+<!--
+  Generated template for the DetailsRestaurantPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <div *ngIf="restaurant"> -->
+  <ion-header>
+
+    <ion-navbar>
+      <ion-title >{{restaurant?restaurant.name:'Carregando'}}</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content padding *ngIf="restaurant">
+
+    <ion-card>
+
+      <img src="/assets/imgs/logo.png">
+
+      <ion-card-content>
+        <p>{{restaurant.description}}</p>
+      </ion-card-content>
+
+      <ion-item>
+        <ion-icon name="alert" item-left large [color]="restaurant.status==0?'secondary':'danger'"></ion-icon>
+        <h2>{{restaurant.status?"Fechado":"Aberto"}}</h2>
+      </ion-item>
+
+    </ion-card>
+
+  </ion-content>
+<!-- </div> -->

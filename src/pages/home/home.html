@@ -1,17 +1,32 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Restaurantes</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 *ngFor="let restaurant of restaurants">
+        <ion-card (click)="openCard(restaurant.id)">
+          <img *ngIf="restaurant.image" [src]="restaurant.image" />
+          <ion-card-content>
+            <ion-card-title>
+              {{restaurant.name}}
+            </ion-card-title>
+            <p>
+              {{restaurant.description}}
+            </p>
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+                <button small clear ion-button icon-only [color]="!restaurant.status?'secondary':'danger'">
+                    <ion-icon name="alert"></ion-icon>
+                </button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
